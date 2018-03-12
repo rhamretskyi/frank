@@ -3,8 +3,9 @@ import { View, Text, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import firebase from 'firebase';
 import { reduxForm, Field } from 'redux-form';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import { TurqButton, Card, CardSection, Input, Spinner } from './common/Index';
+import { TurqButton, Card, CardSection, Input, Spinner, Button } from './common/Index';
 
 class LoginForm extends Component {
   // state = { email: '', password: '', error: '', loading: false };
@@ -58,7 +59,7 @@ class LoginForm extends Component {
     const { input } = this.props;
 
     return (
-      <View style={styles.viewStyle}>
+      <KeyboardAwareScrollView style={styles.viewStyle}>
         <Image style={styles.imgStyle} source={require('../img/logo.png')} alt="Frank's logo" />
         <View style={{ paddingTop: 80 }}>
           <Card>
@@ -92,7 +93,11 @@ class LoginForm extends Component {
 
           </Card>
         </View>
-      </View>
+        
+        <View style={{ paddingTop: 95 }}>
+            <Button onPress={() => Actions.signUp()}>Sign Up</Button>
+          </View>
+      </KeyboardAwareScrollView>
     );
   }
 }

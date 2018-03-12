@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 import SignUpForm from '../components/SignUpForm';
-import { loading, signUp } from '../actions'
+import { loading, signUpAgree, signUpVisibleAgreement } from '../actions'
 
 const mapStateToProps = (state) => {
     return {
-      loading: state.login.loading
+      loading: state.auth.loading
     }
   }
    
   const mapDispatchToProps = dispatch => {
     return {
-      onSubmit: (values) => {
-        //dispatch(signUp(values));
+      onSubmit: () => {
+        dispatch(signUpVisibleAgreement);
       }
     }
   }
