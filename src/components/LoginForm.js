@@ -2,54 +2,61 @@ import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import firebase from 'firebase';
+import { reduxForm, Field } from 'redux-form';
 
 import { TurqButton, Card, CardSection, Input, Spinner } from './common/Index';
 
 class LoginForm extends Component {
-  state = { email: '', password: '', error: '', loading: false };
+  // state = { email: '', password: '', error: '', loading: false };
 
-  onButtonPress() {
-    const { email, password } = this.state;
+  // onButtonPress() {
+  //   const { email, password } = this.state;
 
-    this.setState({ error: '', loading: true });
+  //   this.setState({ error: '', loading: true });
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(this.onLoginSuccess.bind(this))
-      .catch(() => {
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-          .then(this.onLoginSuccess.bind(this))
-          .catch(this.onLoginFail.bind(this));
-      });
-  }
+  //   firebase.auth().signInWithEmailAndPassword(email, password)
+  //     .then(this.onLoginSuccess.bind(this))
+  //     .catch(() => {
+  //       firebase.auth().createUserWithEmailAndPassword(email, password)
+  //         .then(this.onLoginSuccess.bind(this))
+  //         .catch(this.onLoginFail.bind(this));
+  //     });
+  // }
 
-  onLoginFail() {
-    this.setState({ error: 'Authentication Failed', loading: false });
-  }
+  // onLoginFail() {
+  //   this.setState({ error: 'Authentication Failed', loading: false });
+  // }
 
-  onLoginSuccess() {
-    this.setState({
-      email: '',
-      password: '',
-      loading: false,
-      error: ''
-    });
+  // onLoginSuccess() {
+  //   this.setState({
+  //     email: '',
+  //     password: '',
+  //     loading: false,
+  //     error: ''
+  //   });
 
-    Actions.land();
+  //   Actions.land();
+  // }
+
+  submit = (values) => {
+    this.props.onSubmit(values);
   }
 
   renderButton() {
-    if (this.state.loading) {
+    if (this.props.loading) {
       return <Spinner size="small" />;
     }
 
     return (
-      <TurqButton onPress={this.onButtonPress.bind(this)}>
+      <TurqButton onPress={this.props.handleSubmit(this.submit)}>
         Log in
       </TurqButton>
     );
   }
 
   render() {
+    const { input } = this.props;
+
     return (
       <View style={styles.viewStyle}>
         <Image style={styles.imgStyle} source={require('../img/logo.png')} alt="Frank's logo" />
@@ -57,26 +64,26 @@ class LoginForm extends Component {
           <Card>
           <Text style={styles.loginTextStyle}>Login</Text>
             <CardSection>
-              <Input
-                placeholder="user@gmail.com"
-                label="Email:"
-                value={this.state.email}
-                onChangeText={email => this.setState({ email })}
+              <Field
+                name="email"
+                component={Input}
+                placeholder="E-mail"
+                iconType="user"
               />
             </CardSection>
 
             <CardSection>
-              <Input
+              <Field
+                name="password"
+                component={Input}
                 secureTextEntry
-                placeholder="password"
-                label="Password:"
-                value={this.state.password}
-                onChangeText={password => this.setState({ password })}
+                placeholder="Password"
+                iconType="key"
               />
             </CardSection>
 
             <Text style={styles.errorTextStyle}>
-              {this.state.error}
+              {this.props.error}
             </Text>
 
             <CardSection>
@@ -115,4 +122,6 @@ const styles = {
   }
 };
 
-export default LoginForm;
+export default reduxForm({
+  form: 'logIn'
+})(LoginForm);

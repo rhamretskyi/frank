@@ -23,8 +23,8 @@ const styles = {
     color: '#fff',
     fontSize: 16,
     fontWeight: '800',
-    paddingTop: 10,
-    paddingBottom: 10
+    paddingTop: 0,
+    paddingBottom: 20
   },
   buttonStyle: {
     flex: 1,

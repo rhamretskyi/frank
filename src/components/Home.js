@@ -8,7 +8,7 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.viewStyle}>
-        <Image
+        <ImageBackground
           style={{
             flex: 1,
             position: 'absolute',
@@ -22,10 +22,13 @@ class Home extends Component {
             <Image style={styles.imgStyle} source={require('../img/logo.png')} accessbilityLabel="Frank's logo" />
           </View>
           <Text style={styles.sloganStyle}>FRANK SOLUTIONS FOR COMMERCIAL ENERGY</Text>
-          <View style={{ paddingTop: 100 }}>
+          <View style={{ paddingTop: 80 }}>
             <Button onPress={() => Actions.auth()}>Sign In</Button>
           </View>
-        </Image>
+          <View style={{ marginTop: 40 }}>
+            <Button onPress={() => Actions.signUp()}>Sign Up</Button>
+          </View>
+        </ImageBackground>
       </View>
     );
   }
