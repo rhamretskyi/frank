@@ -9,3 +9,4 @@ export * from './DisplayButton';
 export * from './Section';
 export * from './MapHeader';
 export * from './Icon';
+export * from './BackButton';

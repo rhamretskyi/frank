@@ -5,39 +5,9 @@ import firebase from 'firebase';
 import { reduxForm, Field } from 'redux-form';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import { TurqButton, Card, CardSection, Input, Spinner, Button } from './common/Index';
+import { TurqButton, Card, CardSection, Input, Spinner, Button, BackButton } from './common/Index';
 
 class LoginForm extends Component {
-  // state = { email: '', password: '', error: '', loading: false };
-
-  // onButtonPress() {
-  //   const { email, password } = this.state;
-
-  //   this.setState({ error: '', loading: true });
-
-  //   firebase.auth().signInWithEmailAndPassword(email, password)
-  //     .then(this.onLoginSuccess.bind(this))
-  //     .catch(() => {
-  //       firebase.auth().createUserWithEmailAndPassword(email, password)
-  //         .then(this.onLoginSuccess.bind(this))
-  //         .catch(this.onLoginFail.bind(this));
-  //     });
-  // }
-
-  // onLoginFail() {
-  //   this.setState({ error: 'Authentication Failed', loading: false });
-  // }
-
-  // onLoginSuccess() {
-  //   this.setState({
-  //     email: '',
-  //     password: '',
-  //     loading: false,
-  //     error: ''
-  //   });
-
-  //   Actions.land();
-  // }
 
   submit = (values) => {
     this.props.onSubmit(values);
@@ -56,10 +26,9 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { input } = this.props;
-
     return (
       <KeyboardAwareScrollView style={styles.viewStyle}>
+        <BackButton onPress={() => Actions.start()} />
         <Image style={styles.imgStyle} source={require('../img/logo.png')} alt="Frank's logo" />
         <View style={{ paddingTop: 80 }}>
           <Card>
@@ -128,5 +97,19 @@ const styles = {
 };
 
 export default reduxForm({
-  form: 'logIn'
+  form: 'logIn',
+  validate: (values) => {
+    const errors = {};
+    errors.email = !values.email 
+      ? 'E-mail field is required' 
+      : (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email))
+      ? 'E-mail is not valid'
+      : undefined;
+    errors.password = !values.password
+      ? 'Password field is required'
+      : values.password.length < 6
+      ? 'Password must be at least 6 characters long'
+      : undefined;
+    return errors;
+  }
 })(LoginForm);

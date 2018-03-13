@@ -5,7 +5,7 @@ import firebase from 'firebase';
 import { Field, reduxForm } from 'redux-form';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import { TurqButton, Card, CardSection, Input, Spinner, Button } from './common/Index';
+import { TurqButton, Card, CardSection, Input, Spinner, Button, BackButton } from './common/Index';
 import Agreement from '../containers/Agreement';
 
 class SignUpForm extends Component {
@@ -29,6 +29,7 @@ class SignUpForm extends Component {
   render() {
     return (
       <KeyboardAwareScrollView style={styles.viewStyle}>
+        <BackButton onPress={() => Actions.start()} />
         <Image style={styles.imgStyle} source={require('../img/logo.png')} alt="Frank's logo" />
         <View style={{ paddingTop: 40 }}>
           <Card>

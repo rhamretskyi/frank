@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AgreementModal from '../components/AgreementModal';
-import { signUpAgree, signUpDisagree } from '../actions';
+import { signUpAgree, signUpVisibleAgreement } from '../actions';
 import { Alert } from 'react-native';
 const mapStateToProps = (state) => {
   return {
@@ -21,9 +21,7 @@ const mapDispatchToProps = dispatch => {
         [
           {
             text: 'OK', 
-            onPress: () => dispatch(signUpDisagree({
-              isVisibleAgreement: false
-            }))
+            onPress: () => dispatch(signUpVisibleAgreement)
           }
         ]
       );
