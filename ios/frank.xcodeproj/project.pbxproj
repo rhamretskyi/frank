@@ -25,6 +25,7 @@
 		141BA70220565D3A00F4D623 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 141BA70020565D3A00F4D623 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		141BA70920565D7A00F4D623 /* libRCTMGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 141BA70820565D4D00F4D623 /* libRCTMGL.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		149682EB205818680058A653 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 141BA6FD20565CFB00F4D623 /* libRNSVG.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -413,6 +414,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149682EB205818680058A653 /* libRNSVG.a in Frameworks */,
 				141BA70920565D7A00F4D623 /* libRCTMGL.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,

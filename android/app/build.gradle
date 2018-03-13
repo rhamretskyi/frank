@@ -137,6 +137,11 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-svg')
+    compile project(':@mapbox/react-native-mapbox-gl')
+    compile project(':react-native-svg')
+    compile project(':react-native-svg')
+    compile project(':@mapbox/react-native-mapbox-gl')
     compile project(':@mapbox/react-native-mapbox-gl')
     compile project(':react-native-svg')
     compile fileTree(dir: "libs", include: ["*.jar"])
