@@ -10,3 +10,4 @@ export * from './Section';
 export * from './MapHeader';
 export * from './Icon';
 export * from './BackButton';
+export * from './Error';

@@ -15,8 +15,14 @@ export const Icon = ({name}) => {
     };
 
     return (
-        <View>
+        <View style={styles.iconStyle}>
             {renderIcon()}
         </View>
     )
+}
+
+const styles = {
+    iconStyle: {
+        justifyContent: 'center'
+    }
 }

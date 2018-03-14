@@ -10,6 +10,7 @@ import ChatSupport from './components/ChatSupport';
 import { connect } from 'react-redux';
 import SignUp from './containers/SignUp';
 import LogIn from './containers/LogIn';
+import token from './utils/token';
 
 const RouterWithRedux = connect()(Router);
 

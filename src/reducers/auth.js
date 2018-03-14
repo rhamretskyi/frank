@@ -10,8 +10,7 @@ const auth = (state = initiateState, action) => {
       case  'SET_LOADING':     
         return {...state, loading: !state.loading}
       case 'SIGNUP_SUCCESS':
-      case 'SIGNUP_FAILURE':
-        return Object.assign({}, state, action.payload);
+      case 'LOGIN_SUCCESS':
       default:
         return state
     }

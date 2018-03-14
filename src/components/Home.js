@@ -3,8 +3,16 @@ import { View, Text, Image, ImageBackground } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import { CardSection, Button } from './common/Index';
+import token from '../utils/token';
 
 class Home extends Component {
+  componentDidMount() {
+    token.then((token)=> {
+      if(false) {
+        Actions.land();
+      }
+    });
+  }
   render() {
     return (
       <View style={styles.viewStyle}>

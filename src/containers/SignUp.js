@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import SignUpForm from '../components/SignUpForm';
-import { loading, signUpAgree, signUpVisibleAgreement } from '../actions'
+import { signUpVisibleAgreement } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
-    loading: state.auth.loading
+    loading: state.auth.loading,
+    errorStore: state.error,
   }
 }
  
@@ -12,6 +13,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onSubmit: () => {
       dispatch(signUpVisibleAgreement);
+    },
+    reset: () => {
+      dispatch(reset('signIn'));
     }
   }
 }

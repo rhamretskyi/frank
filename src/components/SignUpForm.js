@@ -5,13 +5,16 @@ import firebase from 'firebase';
 import { Field, reduxForm } from 'redux-form';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import { TurqButton, Card, CardSection, Input, Spinner, Button, BackButton } from './common/Index';
+import { TurqButton, Card, CardSection, Input, Spinner, Button, BackButton, Error } from './common/Index';
 import Agreement from '../containers/Agreement';
 
 class SignUpForm extends Component {
-
   submit = (values) => {
     this.props.onSubmit(values);
+  }
+
+  componentDidMount() {
+    this.props.reset();
   }
 
   renderButton() {
@@ -31,6 +34,7 @@ class SignUpForm extends Component {
       <KeyboardAwareScrollView style={styles.viewStyle}>
         <BackButton onPress={() => Actions.start()} />
         <Image style={styles.imgStyle} source={require('../img/logo.png')} alt="Frank's logo" />
+        <Error errorStore={this.props.errorStore} />
         <View style={{ paddingTop: 40 }}>
           <Card>
           <Text style={styles.loginTextStyle}>Signup</Text>
@@ -86,9 +90,6 @@ class SignUpForm extends Component {
               {this.renderButton()}
             </CardSection>
           </Card>
-          <View style={{ paddingTop: 15 }}>
-            <Button onPress={() => Actions.auth()}>Sign In</Button>
-          </View>
         </View>
         <Agreement />
       </KeyboardAwareScrollView>
@@ -125,26 +126,26 @@ export default reduxForm({
   form: 'signUp',
   validate: (values) => {
     const errors = {};
-    // errors.userName = !values.userName ? 'Name field is required'
-    //   : (/[&?!+]/.test(values.userName))
-    //   ? "&, ?, !, + is not valid symbols"
-    //   : undefined;
-    // errors.email = !values.email 
-    //   ? 'E-mail field is required' 
-    //   : (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email))
-    //   ? 'E-mail is not valid'
-    //   : undefined;
-    // errors.phone = values.phone && (!/^[0-9]{10}$/.test(values.phone))
-    //   ? 'Phone Number must contain 10 digits'
-    //   : undefined
-    // errors.password = !values.password
-    //   ? 'Password field is required'
-    //   : values.password.length < 6
-    //   ? 'Password must be at least 6 characters long'
-    //   : undefined;
-    // errors.passwordConfirm = values.password != values.passwordConfirm
-    //   ? 'Passwords do not match'
-    //   : undefined
+    errors.userName = !values.userName ? 'Name field is required'
+      : (/[&?!+]/.test(values.userName))
+      ? "&, ?, !, + is not valid symbols"
+      : undefined;
+    errors.email = !values.email 
+      ? 'E-mail field is required' 
+      : (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email))
+      ? 'E-mail is not valid'
+      : undefined;
+    errors.phone = values.phone && (!/^[0-9]{10}$/.test(values.phone))
+      ? 'Phone Number must contain 10 digits'
+      : undefined
+    errors.password = !values.password
+      ? 'Password field is required'
+      : values.password.length < 6
+      ? 'Password must be at least 6 characters long'
+      : undefined;
+    errors.passwordConfirm = values.password != values.passwordConfirm
+      ? 'Passwords do not match'
+      : undefined
     return errors;
   }
 })(SignUpForm);

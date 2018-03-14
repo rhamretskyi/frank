@@ -5,12 +5,16 @@ import firebase from 'firebase';
 import { reduxForm, Field } from 'redux-form';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import { TurqButton, Card, CardSection, Input, Spinner, Button, BackButton } from './common/Index';
+import { TurqButton, Card, CardSection, Input, Spinner, Button, BackButton, Error } from './common/Index';
 
 class LoginForm extends Component {
 
   submit = (values) => {
     this.props.onSubmit(values);
+  }
+
+  componentDidMount() {
+    this.props.reset();
   }
 
   renderButton() {
@@ -30,6 +34,7 @@ class LoginForm extends Component {
       <KeyboardAwareScrollView style={styles.viewStyle}>
         <BackButton onPress={() => Actions.start()} />
         <Image style={styles.imgStyle} source={require('../img/logo.png')} alt="Frank's logo" />
+        <Error errorStore={this.props.errorStore} />
         <View style={{ paddingTop: 80 }}>
           <Card>
           <Text style={styles.loginTextStyle}>Login</Text>
@@ -59,13 +64,8 @@ class LoginForm extends Component {
             <CardSection>
               {this.renderButton()}
             </CardSection>
-
           </Card>
         </View>
-        
-        <View style={{ paddingTop: 95 }}>
-            <Button onPress={() => Actions.signUp()}>Sign Up</Button>
-          </View>
       </KeyboardAwareScrollView>
     );
   }
