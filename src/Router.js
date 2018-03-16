@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
 import SignUp from './containers/SignUp';
 import LogIn from './containers/LogIn';
 import token from './utils/token';
+import ForgotPassword from './containers/ForgotPassword';
+import RestorePassword from './containers/RestorePassword';
 
 const RouterWithRedux = connect()(Router);
 
@@ -18,15 +20,19 @@ const RouterComponent = () => {
   return (
 
     <RouterWithRedux>
-      <Scene key="start">
+      <Scene key="start" initial>
         <Scene key="home" component={Home} title="Home" hideNavBar />
       </Scene>
 
       <Scene key="auth">
-        <Scene key="login" component={LogIn} title="Login" hideNavBar initial />
+        <Scene key="login" component={LogIn} title="Login" hideNavBar />
       </Scene>
       
       <Scene key="signUp" component={SignUp} title="Sign up" hideNavBar  />
+      
+      <Scene key="forgotPassword" component={ForgotPassword} title="Forgot Password" hideNavBar  />
+
+      <Scene key="restorePassword" component={RestorePassword} title="Forgot Password" hideNavBar  />
 
       <Scene key="land">
         <Scene key="landing" component={Landing} title="Statistics" hideNavBar initial />

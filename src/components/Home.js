@@ -36,6 +36,9 @@ class Home extends Component {
           <View style={{ marginTop: 40 }}>
             <Button onPress={() => Actions.signUp()}>Sign Up</Button>
           </View>
+          <View style={{ marginTop: 40 }}>
+            <Button onPress={() => Actions.forgotPassword()}>Forgot Password</Button>
+          </View>
         </ImageBackground>
       </View>
     );

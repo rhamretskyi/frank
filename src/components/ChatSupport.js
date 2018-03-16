@@ -132,7 +132,9 @@ class ChatSupport extends Component {
               <Text>Send</Text>
             </TurqButton>
           </Section>
+          <NavBar />
         </View>
+        <Text>Test</Text>
         <NavBar />
       </View>
     );

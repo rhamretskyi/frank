@@ -9,6 +9,8 @@ const auth = (state = initiateState, action) => {
         return {...state, isVisibleAgreement: !state.isVisibleAgreement}
       case  'SET_LOADING':     
         return {...state, loading: !state.loading}
+      case 'RESTORE_CODE':
+        return {...state, restoreCode: action.payload}
       case 'SIGNUP_SUCCESS':
       case 'LOGIN_SUCCESS':
       default:

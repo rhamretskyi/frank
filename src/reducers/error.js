@@ -5,8 +5,7 @@ const initialState = {
   
   export default function reducer(state = initialState, action) {
     switch (action.type) {
-      case 'SIGNUP_FAILURE':
-      case 'LOGIN_FAILURE': {
+      case 'NEW_ERROR': {
         const newState = Object.assign({}, initialState);
         newState.isError = true;
         newState.error = action.payload.message;
