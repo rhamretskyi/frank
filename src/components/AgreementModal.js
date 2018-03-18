@@ -5,43 +5,54 @@ import { CardSection, Card, TurqButton } from './common/Index';
 
 const AgreementModal = ({isVisible, onAgree, onDisagree, signUpFormValues}) => {
     return (
-    <Modal
-        animationType="slide"
-        transparent={true}
-        visible={isVisible}>
-        <View style={styles.modalStyle}>
-          <View style={styles.textBodyStyle}>
-            <Text style={styles.headerStyle}>Terms and Agreenment</Text>
-            <Text style={styles.subHeaderStyle}>Please read the following terms before proceding.</Text>
-            <Text style={styles.bodyStyle}>
-            You agree to digital sign a letter of authorization, allowing “Frank LLC” to request your utility data on your behalf. This data will not be shared with third parties. 
-            You agree that “Frank LLC” will be your exclusive broker for a period of up to 365 days unless termination is agreed by both parties in writing.            
-            </Text>
+      <View style={styles.modalContainerStyle}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={isVisible}>
+          <View style={styles.modalStyle}>
+            <View style={styles.modalBodyStyle}>
+              <View style={styles.textBodyStyle}>
+                <Text style={styles.headerStyle}>Terms and Agreenment</Text>
+                <Text style={styles.subHeaderStyle}>Please read the following terms before proceding.</Text>
+                <Text style={styles.bodyStyle}>
+                You agree to digital sign a letter of authorization, allowing “Frank LLC” to request your utility data on your behalf. This data will not be shared with third parties. 
+                You agree that “Frank LLC” will be your exclusive broker for a period of up to 365 days unless termination is agreed by both parties in writing.            
+                </Text>
+              </View>
+              <View style={styles.buttonsStyle}>
+                  <TurqButton onPress={onDisagree}>
+                    Disagree
+                  </TurqButton>
+                  <TurqButton onPress={() => onAgree(signUpFormValues)}>
+                    Agree
+                  </TurqButton>
+              </View>
+            </View>
           </View>
-          <View style={styles.buttonsStyle}>
-              <TurqButton onPress={onDisagree}>
-                Disagree
-              </TurqButton>
-              <TurqButton onPress={() => onAgree(signUpFormValues)}>
-                Agree
-              </TurqButton>
-          </View>
-        </View>
-      </Modal>
+        </Modal>
+      </View>
+
     );
 }
 
 const styles = {
+    modalContainerStyle: {
+        position: 'absolute',
+        flex: 1
+    },
     modalStyle: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        margin: 20,
-        marginTop: 120,
-        height: 430,
-        backgroundColor: 'white',
-        borderRadius: 5,
-        padding: 10,
+      flex: 1,
+      margin: 20,
+      justifyContent: 'center',
+    },
+    modalBodyStyle: {
+      padding: 10,
+      borderRadius: 5,
+      marginTop: 120,
+      backgroundColor: 'white',
+      height: 420,
+      justifyContent: 'space-between'
     },
     textBodyStyle: {
       alignSelf: 'stretch',

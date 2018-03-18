@@ -8,7 +8,6 @@ export const Error = ({errorStore}) => {
 
 const styles = {
     errorStyle: {
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         top: 25

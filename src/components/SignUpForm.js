@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, Image } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import firebase from 'firebase';
 import { Field, reduxForm } from 'redux-form';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import { TurqButton, Card, CardSection, Input, Spinner, Button, BackButton, Error } from './common/Index';
+import { AuthLayout, TurqButton, Card, CardSection, Input, Spinner, Button } from './common/Index';
 import Agreement from '../containers/Agreement';
 
 class SignUpForm extends Component {
   submit = (values) => {
     this.props.onSubmit(values);
-  }
-
-  componentDidMount() {
-    this.props.reset();
   }
 
   renderButton() {
@@ -24,20 +17,16 @@ class SignUpForm extends Component {
 
     return (
       <TurqButton onPress={this.props.handleSubmit(this.submit)}>
-        Login
+        Sign Up
       </TurqButton>
     );
   }
 
   render() {
     return (
-      <KeyboardAwareScrollView style={styles.viewStyle}>
-        <BackButton onPress={() => Actions.start()} />
-        <Image style={styles.imgStyle} source={require('../img/logo.png')} alt="Frank's logo" />
-        <Error errorStore={this.props.errorStore} />
-        <View style={{ paddingTop: 40 }}>
-          <Card>
-          <Text style={styles.loginTextStyle}>Signup</Text>
+      <AuthLayout reset={this.props.reset} errorStore={this.props.errorStore}>
+        <Card>
+          <Text style={styles.loginTextStyle}>Sign Up</Text>
             <CardSection>
               <Field
                 name="userName"
@@ -81,44 +70,23 @@ class SignUpForm extends Component {
                 placeholder="Password"
               />
             </CardSection>
-
-            <Text style={styles.errorTextStyle}>
-              {this.props.error}
-            </Text>
-
             <CardSection>
               {this.renderButton()}
             </CardSection>
           </Card>
-        </View>
-        <Agreement />
-      </KeyboardAwareScrollView>
+          <Agreement />
+      </AuthLayout>
     );
   }
 }
 
 const styles = {
-  errorTextStyle: {
-    fontSize: 20,
-    alignSelf: 'center',
-    color: 'red',
-  },
   loginTextStyle: {
     fontSize: 26,
     fontWeight: '400',
     alignSelf: 'center',
     paddingBottom: 5,
     paddingTop: 20,
-  },
-  viewStyle: {
-    backgroundColor: '#123c66',
-    flex: 1
-  },
-  imgStyle: {
-    alignSelf: 'center',
-    marginTop: 60,
-    height: 50,
-    width: 50
   }
 };
 

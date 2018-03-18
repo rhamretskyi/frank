@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
 
-import { AuthLayout, TurqButton, Card, CardSection, Input, Spinner, Button } from './common/Index';
+import {AuthLayout, TurqButton, Card, CardSection, Input, Spinner, Button } from './common/Index';
 
-class LoginForm extends Component {
+class RestorePasswordForm extends Component {
 
   submit = (values) => {
     this.props.onSubmit(values);
@@ -17,7 +17,7 @@ class LoginForm extends Component {
 
     return (
       <TurqButton onPress={this.props.handleSubmit(this.submit)}>
-        Log in
+        Submit
       </TurqButton>
     );
   }
@@ -25,30 +25,32 @@ class LoginForm extends Component {
   render() {
     return (
       <AuthLayout reset={this.props.reset} errorStore={this.props.errorStore}>
-          <Card>
-          <Text style={styles.loginTextStyle}>Sign In</Text>
-            <CardSection>
+        <Card>
+          <Text style={styles.loginTextStyle}>Restore Password</Text>
+          <CardSection>
               <Field
-                name="email"
+                name="password"
                 component={Input}
-                placeholder="E-mail"
-                iconType="user"
+                iconType="key"
+                secureTextEntry
+                placeholder="Password"
               />
             </CardSection>
 
             <CardSection>
               <Field
-                name="password"
+                name="passwordConfirm"
                 component={Input}
+                iconType="key"
                 secureTextEntry
                 placeholder="Password"
-                iconType="key"
               />
             </CardSection>
+
             <CardSection>
               {this.renderButton()}
             </CardSection>
-          </Card>
+        </Card>
       </AuthLayout>
     );
   }
@@ -65,19 +67,17 @@ const styles = {
 };
 
 export default reduxForm({
-  form: 'logIn',
+  form: 'restorePassword',
   validate: (values) => {
     const errors = {};
-    errors.email = !values.email 
-      ? 'E-mail field is required' 
-      : (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email))
-      ? 'E-mail is not valid'
-      : undefined;
     errors.password = !values.password
       ? 'Password field is required'
       : values.password.length < 6
       ? 'Password must be at least 6 characters long'
       : undefined;
+    errors.passwordConfirm = values.password != values.passwordConfirm
+      ? 'Passwords do not match'
+      : undefined
     return errors;
   }
-})(LoginForm);
+})(RestorePasswordForm);

@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(signUpVisibleAgreement);
     },
     reset: () => {
-      dispatch(reset('signIn'));
+      dispatch(reset('signUp'));
     }
   }
 }

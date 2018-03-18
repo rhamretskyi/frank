@@ -10,8 +10,7 @@ export const newError = error => ({ type: 'NEW_ERROR', payload: error });
 export const clearError = () => ({ type: 'ERROR_CLEARED' });
 export const restoreCode = (code) => ({ type: 'RESTORE_CODE', payload: code})
 
-export const signUpAgree = (values) => {
-    return (dispatch) => {
+export const signUpAgree = (values) => (dispatch) => {
         dispatch(clearError());
         dispatch(signUpVisibleAgreement);
         dispatch(loading);
@@ -34,8 +33,7 @@ export const signUpAgree = (values) => {
     }
 }
 
-export const login = (values) => {
-    return (dispatch) => {
+export const login = (values) => (dispatch) => {
         dispatch(clearError());
         dispatch(loading);
         api.post('/signin', values).then((response) => {
@@ -57,8 +55,7 @@ export const login = (values) => {
     }
 }
 
-export const forgotPassword = (values) => {
-    return (dispatch, getState) => {
+export const forgotPassword = (values) => (dispatch, getState) => {
         dispatch(clearError());
 
         if(values.code) {
@@ -88,8 +85,7 @@ export const forgotPassword = (values) => {
     }
 }
 
-export const restorePassword = (values) => {
-    return (dispatch, getState) => {
+export const restorePassword = (values) => (dispatch, getState) => {
         dispatch(clearError());
         dispatch(loading);
 

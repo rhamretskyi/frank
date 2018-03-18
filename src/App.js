@@ -12,32 +12,11 @@ const store = createStore(
     reducers,
     compose(
       applyMiddleware(thunk),
-      isDebuggingEnabled ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : applyMiddleware()
+      //isDebuggingEnabled ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : applyMiddleware()
     )
 );
 
 class App extends Component {
-  state = { loggedIn: null };
-
-  componentWillMount() {
-    const config = {
-      apiKey: "AIzaSyDR4xlUKgav_oWmHTnzFchF6Y6Ddbn52yM",
-      authDomain: "frank-ba8b3.firebaseapp.com",
-      databaseURL: "https://frank-ba8b3.firebaseio.com",
-      projectId: "frank-ba8b3",
-      storageBucket: "",
-      messagingSenderId: "1097302905279"
-    };
-    firebase.initializeApp(config);
-
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ loggedIn: true });
-      } else {
-        this.setState({ loggedIn: false });
-      }
-    });
-  }
 
   render() {
     return (

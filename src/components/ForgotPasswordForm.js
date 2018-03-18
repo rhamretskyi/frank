@@ -4,7 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 
 import { AuthLayout, TurqButton, Card, CardSection, Input, Spinner, Button } from './common/Index';
 
-class LoginForm extends Component {
+class ForgotPasswordForm extends Component {
 
   submit = (values) => {
     this.props.onSubmit(values);
@@ -17,7 +17,7 @@ class LoginForm extends Component {
 
     return (
       <TurqButton onPress={this.props.handleSubmit(this.submit)}>
-        Log in
+        Submit
       </TurqButton>
     );
   }
@@ -25,30 +25,32 @@ class LoginForm extends Component {
   render() {
     return (
       <AuthLayout reset={this.props.reset} errorStore={this.props.errorStore}>
-          <Card>
-          <Text style={styles.loginTextStyle}>Sign In</Text>
-            <CardSection>
-              <Field
-                name="email"
-                component={Input}
-                placeholder="E-mail"
-                iconType="user"
-              />
-            </CardSection>
+        <Card>
+          <Text style={styles.loginTextStyle}>Forgot Password</Text>
+          <CardSection>
+            <Field
+              name="email"
+              component={Input}
+              placeholder="E-mail"
+              iconType="user"
+            />
+          </CardSection>
 
-            <CardSection>
+          { this.props.restoreCode  
+          ? <CardSection>
               <Field
-                name="password"
+                name="code"
                 component={Input}
-                secureTextEntry
-                placeholder="Password"
+                placeholder="Code"
                 iconType="key"
               />
-            </CardSection>
-            <CardSection>
-              {this.renderButton()}
-            </CardSection>
-          </Card>
+            </CardSection> 
+          : null}
+
+          <CardSection>
+            {this.renderButton()}
+          </CardSection>
+        </Card>
       </AuthLayout>
     );
   }
@@ -65,7 +67,7 @@ const styles = {
 };
 
 export default reduxForm({
-  form: 'logIn',
+  form: 'forgotPassword',
   validate: (values) => {
     const errors = {};
     errors.email = !values.email 
@@ -73,11 +75,9 @@ export default reduxForm({
       : (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email))
       ? 'E-mail is not valid'
       : undefined;
-    errors.password = !values.password
-      ? 'Password field is required'
-      : values.password.length < 6
-      ? 'Password must be at least 6 characters long'
+    errors.code = !values.code
+      ? 'Code field is required'
       : undefined;
     return errors;
   }
-})(LoginForm);
+})(ForgotPasswordForm);
