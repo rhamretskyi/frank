@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 
 
 const CardSection = (props) => {
@@ -23,3 +24,7 @@ const styles = {
 };
 
 export { CardSection };
+
+CardSection.propTypes = {
+  children: PropTypes.element
+}

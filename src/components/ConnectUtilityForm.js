@@ -4,6 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
 import { AuthLayout, TurqButton, Card, CardSection, Input, Spinner } from './common/Index';
+import { Actions } from 'react-native-router-flux';
 
 class ConnectUtilityForm extends Component {
 
@@ -66,7 +67,7 @@ class ConnectUtilityForm extends Component {
 
         </Card>
         <View style={buttonSectionStyle}>
-          <TurqButton>
+          <TurqButton onPress={() => Actions.account()}>
               Skip For Now {'>'}
           </TurqButton>
         </View>

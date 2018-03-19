@@ -9,7 +9,7 @@ class Home extends Component {
   componentDidMount() {
     token.then((token)=> {
       if(false) {
-        Actions.land();
+        Actions.account();
       }
     });
   }

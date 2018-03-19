@@ -20,7 +20,7 @@ export const signUpAgree = (values) => (dispatch) => {
 
         if(!data.error) {
             AsyncStorage.setItem('token', data.token).then(()=> {
-                Actions.land();
+                Actions.connectUtility();
             });
             return dispatch(signUpSuccess);
         }   
@@ -41,7 +41,7 @@ export const login = (values) => (dispatch) => {
 
         if(!data.error) {
             AsyncStorage.setItem('token', data.token).then(()=> {
-                Actions.land();
+                Actions.account();
             });
             return dispatch(logInSuccess);
         }
@@ -98,7 +98,7 @@ export const restorePassword = (values) => (dispatch, getState) => {
         dispatch(loading);
         const data = response.data;
         if(!data.error) {
-            Actions.land();
+            Actions.account();
         }
         
         return dispatch(newError(new Error(data.error)));

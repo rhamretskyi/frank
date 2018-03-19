@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 
 import NavBar from './NavBar';
 import { DisplayButton } from './common/Index';
@@ -85,43 +85,43 @@ class AccountDetails extends Component {
   render() {
     return (
       <View style={{ paddingTop: 25, backgroundColor: '#123c66' }}>
-        <View style={styles.containerStyle}>
-          <Image style={styles.logoStyle} source={require('../img/logo.png')} accessibilityLabel="Frank's logo" />
-          <Text style={styles.homeTextStyle}>Home</Text>
-        </View>
-
-        <View style={styles.topViewStyle}>
-          <Text style={styles.topTextStyle}>Days Until Contract Renewal</Text>
-          <Image style={styles.donuteStyle} source={require('../img/donute.png')} accessibilityLabel="Amount of days until electric bill is due" />
-          <Text style={styles.counterStyle}>{this.state.counter}</Text>
-        </View>
-
-        <View style={styles.bottomViewStyle}>
-
-        <Image style={styles.imgStyle} source={require('../img/green-mtn.png')} accessibilityLabel="Green Energy Mountain" />
-
-          <View style={styles.buttonContainerStyle}>
-            <DisplayButton>
-              Current Rate: <Text style={styles.greenTextStyle}>4.2c/kWh</Text>
-            </DisplayButton>
-            <DisplayButton>
-              Prev Rate: <Text style={styles.redTextStyle}>8.7c/kWh</Text>
-            </DisplayButton>
+        <ScrollView>
+          <View style={styles.containerStyle}>
+            <Image style={styles.logoStyle} source={require('../img/logo.png')} accessibilityLabel="Frank's logo" />
+            <Text style={styles.homeTextStyle}>Home</Text>
           </View>
-          <View style={styles.buttonContainerStyle}>
-            <DisplayButton>
-              Current Bill: <Text style={styles.greenTextStyle}>$2,123</Text>
-            </DisplayButton>
-            <DisplayButton>
-              Prev Bill: <Text style={styles.redTextStyle}>$4,427</Text>
-            </DisplayButton>
+
+          <View style={styles.topViewStyle}>
+            <Text style={styles.topTextStyle}>Days Until Contract Renewal</Text>
+            <Image style={styles.donuteStyle} source={require('../img/donute.png')} accessibilityLabel="Amount of days until electric bill is due" />
+            <Text style={styles.counterStyle}>{this.state.counter}</Text>
           </View>
-          <View style={styles.loneButtonStyle}>
-            <DisplayButton>
-              YTD Savings: <Text style={styles.greenTextStyle}>$12,725</Text>
-            </DisplayButton>
+
+          <View style={styles.bottomViewStyle}>
+            <Image style={styles.imgStyle} source={require('../img/green-mtn.png')} accessibilityLabel="Green Energy Mountain" />
+            <View style={styles.buttonContainerStyle}>
+              <DisplayButton>
+                Current Rate: <Text style={styles.greenTextStyle}>4.2c/kWh</Text>
+              </DisplayButton>
+              <DisplayButton>
+                Prev Rate: <Text style={styles.redTextStyle}>8.7c/kWh</Text>
+              </DisplayButton>
+            </View>
+            <View style={styles.buttonContainerStyle}>
+              <DisplayButton>
+                Current Bill: <Text style={styles.greenTextStyle}>$2,123</Text>
+              </DisplayButton>
+              <DisplayButton>
+                Prev Bill: <Text style={styles.redTextStyle}>$4,427</Text>
+              </DisplayButton>
+            </View>
+            <View style={styles.loneButtonStyle}>
+              <DisplayButton>
+                YTD Savings: <Text style={styles.greenTextStyle}>$12,725</Text>
+              </DisplayButton>
+            </View>
           </View>
-        </View>
+        </ScrollView>
         <NavBar />
       </View>
     );
@@ -179,8 +179,8 @@ const styles = {
   buttonContainerStyle: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 40,
+    justifyContent: 'space-around',
+    marginBottom: 15,
     marginTop: 15
   },
   loneButtonStyle: {

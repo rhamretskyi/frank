@@ -19,6 +19,7 @@
     "react-native-router-flux": "^3.43.0",
     "react-native-slider": "^0.11.0",
     "react-native-svg": "^5.4.1",
+    "react-native-tooltips": "0.0.4",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-form": "^7.3.0",

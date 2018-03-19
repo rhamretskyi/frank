@@ -33,13 +33,13 @@ const RouterComponent = () => {
 
       <Scene key="restorePassword" component={RestorePassword} title="Forgot Password" hideNavBar  />
 
-      <Scene key="connectUtility" component={ConnectUtility} title="Connect You Utility" hideNavBar initial  />
+      <Scene key="connectUtility" component={ConnectUtility} title="Connect You Utility" hideNavBar  />
 
       <Scene key="land">
-        <Scene key="landing" component={Landing} title="Statistics" hideNavBar initial />
+        <Scene key="landing" component={Landing} title="Statistics" hideNavBar />
       </Scene>
 
-      <Scene key="account">
+      <Scene key="account" initial>
         <Scene key="accountDetails" component={AccountDetails} title="Home" hideNavBar />
       </Scene>
 

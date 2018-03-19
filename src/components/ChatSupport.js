@@ -124,7 +124,6 @@ class ChatSupport extends Component {
             <TextInput
               style={{ width: '75%' }}
               placeholder="Type your question here"
-              ref="typeBox"
               value={this.state.userText}
               onChangeText={(userText) => this.setState({ userText, userTypeMessage: 'Karen is typing...' })}
             />
