@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Image, TextInput } from 'react-native';
 
 import NavBar from './NavBar';
-import Section from './common/Section';
+import { Section } from './common/Section';
 import { TurqButton } from './common/Index';
 
 class ChatSupport extends Component {
@@ -131,9 +131,7 @@ class ChatSupport extends Component {
               <Text>Send</Text>
             </TurqButton>
           </Section>
-          <NavBar />
         </View>
-        <Text>Test</Text>
         <NavBar />
       </View>
     );

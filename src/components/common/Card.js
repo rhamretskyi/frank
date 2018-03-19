@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 
 const Card = ({ children }) => {
   return (
@@ -31,3 +32,7 @@ const styles = {
 };
 
 export { Card };
+
+Card.propTypes = {
+  children: PropTypes.array
+}

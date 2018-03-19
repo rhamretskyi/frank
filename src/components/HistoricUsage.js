@@ -3,7 +3,7 @@ import { View, Text, Image, ScrollView } from 'react-native';
 import Slider from 'react-native-slider';
 
 // common libraries
-import Section from './common/Section';
+import { Section } from './common/Section';
 import UsageChart from './UsageChart';
 import NavBar from './NavBar';
 
@@ -18,9 +18,9 @@ class HistoricUsage extends Component {
               <Text style={styles.usageTextStyle}>Historical Usage</Text>
             </View>
             <View>
-              <Text style={styles.shopTitleStyle}>John's Bicycle Shop</Text>
+              <Text style={styles.shopTitleStyle}>{'John\'s Bicycle Shop'}</Text>
               <Text style={styles.subTitleStyle}>5 Minute Usage: 10 kWh</Text>
-              <Text style={styles.subTitleStyle}>Last Month's Usage: 325 kWh</Text>
+              <Text style={styles.subTitleStyle}>{'Last Month\'s Usage: 325 kWh'}</Text>
               <UsageChart />
             </View>
             <View>

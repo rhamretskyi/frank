@@ -4,27 +4,36 @@ import { Actions } from 'react-native-router-flux'
 
 class NavBar extends Component {
   render() {
+    const currentScene = Actions.currentScene;
+    console.log(currentScene);
+    const { viewStyle, arrowStyle, activeButtonStyle } = styles
     return (
-      <View style={styles.viewStyle}>
-        <TouchableOpacity onPress={() => Actions.account()}>
-          <Image source={require('../img/home.png')} accessibilityLabel="home icon" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Actions.usage()}>
-          <Image source={require('../img/chart.png')} accessibilityLabel="chart icon" />
-        </TouchableOpacity>
-
-        <View style={styles.arrowStyle}>
+      <View style={viewStyle}>
+        <View style={currentScene === 'accountDetails' ? activeButtonStyle : null}>
+          <TouchableOpacity onPress={() => Actions.account()}>
+              <Image source={require('../img/home.png')} accessibilityLabel="home icon" />
+          </TouchableOpacity>
+        </View>
+        <View style={currentScene === 'historicalUsage' ? activeButtonStyle : null}>
+          <TouchableOpacity onPress={() => Actions.usage()}>
+            <Image source={require('../img/chart.png')} accessibilityLabel="chart icon" />
+          </TouchableOpacity>
+        </View>
+        <View style={arrowStyle}>
           <TouchableOpacity onPress={() => Actions.land()}>
             <Image source={require('../img/arrow.png')} accessibilityLabel="arrow icon" />
           </TouchableOpacity>
         </View>
-
-        <TouchableOpacity onPress={() => Actions.map()}>
-          <Image source={require('../img/map-marker.png')} accessibilityLabel="map icon" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => Actions.chat()}>
-          <Image source={require('../img/mail.png')} accessibilityLabel="mail icon" />
-        </TouchableOpacity>
+        <View style={currentScene === 'mapDetails' ? activeButtonStyle : null}>
+          <TouchableOpacity onPress={() => Actions.map()}>
+            <Image source={require('../img/map-marker.png')} accessibilityLabel="map icon" />
+          </TouchableOpacity>
+        </View>
+        <View style={currentScene === 'chatSupport' ? activeButtonStyle : null}>
+          <TouchableOpacity onPress={() => Actions.chat()}>
+            <Image source={require('../img/mail.png')} accessibilityLabel="mail icon" />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -53,6 +62,13 @@ const styles = {
     bottom: 45,
     overflow: 'visible',
     position: 'relative'
+  },
+  activeButtonStyle: {
+    borderBottomWidth: 3,
+    borderColor: '#02b3a4',
+    width: 30,
+    height: 30,
+    alignItems: 'center'
   }
 }
 
