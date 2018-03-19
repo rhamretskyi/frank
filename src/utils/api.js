@@ -1,6 +1,5 @@
 import axios from "axios";
 import { AsyncStorage } from 'react-native';
-import { Actions } from "react-native-router-flux";
 import token from "./token";
 
 const api= axios.create({

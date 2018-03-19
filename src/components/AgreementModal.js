@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { View, Text, Modal, TouchableHighlight } from 'react-native';
+import React from 'react';
+import { View, Text, Modal } from 'react-native';
 
-import { CardSection, Card, TurqButton } from './common/Index';
+import { TurqButton } from './common/Index';
 
 const AgreementModal = ({isVisible, onAgree, onDisagree, signUpFormValues}) => {
     return (

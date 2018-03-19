@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Text } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
 
-import { AuthLayout, TurqButton, Card, CardSection, Input, Spinner, Button } from './common/Index';
+import { AuthLayout, TurqButton, Card, CardSection, Input, Spinner } from './common/Index';
 
 class ForgotPasswordForm extends Component {
 

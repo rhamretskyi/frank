@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
+import { Text } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 
-import { AuthLayout, TurqButton, Card, CardSection, Input, Spinner, Button } from './common/Index';
+import { AuthLayout, TurqButton, Card, CardSection, Input, Spinner } from './common/Index';
 import Agreement from '../containers/Agreement';
 
 class SignUpForm extends Component {

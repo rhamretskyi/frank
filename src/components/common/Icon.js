@@ -1,9 +1,9 @@
 import React from 'react';
-import { TextInput, View, Text, Image } from 'react-native';
+import { View, Image } from 'react-native';
 
 export const Icon = ({name}) => {
 
-    renderIcon = () => {
+    const renderIcon = () => {
         switch (name) {
             case 'user':
                 return (<Image source={require('../../img/user.png')} />)

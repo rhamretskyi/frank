@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
       signUpFormValues: state.form.signUp.values
   }
 }
-   
+
 const mapDispatchToProps = dispatch => {
   return {
     onAgree: (values) => {

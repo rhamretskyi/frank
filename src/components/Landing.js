@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, Image } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import firebase from 'firebase';
+import { View, Image } from 'react-native';
 
-import { CardSection, TurqButton, Header } from './common/Index';
+import { Header } from './common/Index';
 import NavBar from './NavBar';
 
 class Landing extends Component {

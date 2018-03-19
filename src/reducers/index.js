@@ -7,6 +7,6 @@ const reducers = combineReducers({
     auth,
     error,
     form: reduxFormReducer
-})
- 
+});
+
 export default reducers;

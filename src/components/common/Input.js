@@ -1,12 +1,12 @@
 import React from 'react';
-import { TextInput, View, Text, Image } from 'react-native';
+import { TextInput, View, Text } from 'react-native';
 import { Icon } from './Icon';
 
 const Input = (props) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
-  const { label, placeholder, value, secureTextEntry, iconType, input, meta } = props;
+  const { label, placeholder, secureTextEntry, iconType, input, meta } = props;
 
-  isInvalid = () => {
+  const isInvalid = () => {
     if(meta.touched && !meta.active && meta.error) {
       return (
         <Text style={styles.errorTextStyle} adjustsFontSizeToFit={true}>

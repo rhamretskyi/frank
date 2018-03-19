@@ -13,7 +13,7 @@ class Header extends Component {
         <SideNav />
       </View>
     );
-  };
+  }
 
   render() {
     const { textStyle, viewStyle } = styles;
@@ -32,7 +32,7 @@ class Header extends Component {
       </View>
     )
   }
-};
+}
 
 const styles = {
   viewStyle: {

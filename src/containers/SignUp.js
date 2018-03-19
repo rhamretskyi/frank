@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { reset } from 'redux-form'
 import SignUpForm from '../components/SignUpForm';
 import { signUpVisibleAgreement } from '../actions'
 
@@ -8,7 +9,7 @@ const mapStateToProps = (state) => {
     errorStore: state.error,
   }
 }
- 
+
 const mapDispatchToProps = dispatch => {
   return {
     onSubmit: () => {

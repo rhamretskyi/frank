@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import { Scene, Router } from 'react-native-router-flux';
 import Home from './components/Home';
 import Landing from './components/Landing';
@@ -10,7 +9,6 @@ import ChatSupport from './components/ChatSupport';
 import { connect } from 'react-redux';
 import SignUp from './containers/SignUp';
 import LogIn from './containers/LogIn';
-import token from './utils/token';
 import ForgotPassword from './containers/ForgotPassword';
 import RestorePassword from './containers/RestorePassword';
 

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
-import Router from './Router';
-import { Provider } from 'react-redux';
-import reducers from './reducers';
 import { createStore, applyMiddleware, compose } from 'redux';
+import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import Router from './Router';
+import reducers from './reducers';
 
 const isDebuggingEnabled = (typeof atob !== 'undefined');
 

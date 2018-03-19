@@ -3,7 +3,7 @@ import { View, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import { Input, BackButton, Error } from './Index';
+import { BackButton, Error } from './Index';
 
 const AuthLayout = ({ reset, errorStore, children }) => {
     return (

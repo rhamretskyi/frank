@@ -12,7 +12,7 @@ class MapHeader extends Component {
         <SideNav />
       </View>
     );
-  };
+  }
 
   render() {
     const { textStyle, viewStyle } = styles;
@@ -31,7 +31,7 @@ class MapHeader extends Component {
       </View>
     )
   }
-};
+}
 
 const styles = {
   viewStyle: {

@@ -5,12 +5,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node_modules/babel-cli/bin/babel.js ./ --source-maps --out-dir dist",
-    "start": "node_modules/nodemon/bin/nodemon.js -- node_modules/babel-cli/bin/babel-node.js server.js"
+    "start": "node_modules/nodemon/bin/nodemon.js -- node_modules/babel-cli/bin/babel-node.js server.js",
+    "eslint": "node_modules/.bin/eslint"
   },
   "dependencies": {
     "@mapbox/react-native-mapbox-gl": "^6.0.3",
     "axios": "^0.17.1",
-    "firebase": "^4.8.0",
     "react": "^16.3.0-alpha.1",
     "react-native": "0.54.1",
     "react-native-cli": "^2.0.1",
@@ -26,8 +26,11 @@
     "victory-native": "^0.16.6"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
     "babel-jest": "21.2.0",
     "babel-preset-react-native": "4.0.0",
+    "eslint": "^4.19.0",
+    "eslint-plugin-react": "^7.7.0",
     "jest": "21.2.1",
     "react-test-renderer": "16.0.0"
   },
