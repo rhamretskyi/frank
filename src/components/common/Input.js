@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 import { Icon } from './Icon';
+import PropTypes from 'prop-types';
 
 const Input = (props) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
@@ -64,3 +65,12 @@ const styles = {
 };
 
 export { Input };
+
+Input.propTypes = {
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  secureTextEntry: PropTypes.bool,
+  iconType: PropTypes.string,
+  input: PropTypes.object.isRequired,
+  meta: PropTypes.object.isRequired
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
+import PropTypes from 'prop-types';
 
 import {AuthLayout, TurqButton, Card, CardSection, Input, Spinner } from './common/Index';
 
@@ -81,3 +82,11 @@ export default reduxForm({
     return errors;
   }
 })(RestorePasswordForm);
+
+RestorePasswordForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+  errorStore: PropTypes.object.isRequired
+}

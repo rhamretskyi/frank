@@ -11,6 +11,7 @@ import SignUp from './containers/SignUp';
 import LogIn from './containers/LogIn';
 import ForgotPassword from './containers/ForgotPassword';
 import RestorePassword from './containers/RestorePassword';
+import ConnectUtility from './containers/ConnectUtility';
 
 const RouterWithRedux = connect()(Router);
 
@@ -31,6 +32,8 @@ const RouterComponent = () => {
       <Scene key="forgotPassword" component={ForgotPassword} title="Forgot Password" hideNavBar  />
 
       <Scene key="restorePassword" component={RestorePassword} title="Forgot Password" hideNavBar  />
+
+      <Scene key="connectUtility" component={ConnectUtility} title="Connect You Utility" hideNavBar initial  />
 
       <Scene key="land">
         <Scene key="landing" component={Landing} title="Statistics" hideNavBar initial />

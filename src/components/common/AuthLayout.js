@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import PropTypes from 'prop-types';
 
 import { BackButton, Error } from './Index';
 
@@ -47,4 +48,8 @@ const styles = {
 
 export { AuthLayout };
 
-
+AuthLayout.propTypes = {
+  reset: PropTypes.func,
+  errorStore: PropTypes.object,
+  children: PropTypes.array
+}

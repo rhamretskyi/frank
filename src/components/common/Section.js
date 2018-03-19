@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 
 const Section = (props) => {
   return (
@@ -21,4 +22,8 @@ const styles = {
   }
 };
 
-export default Section;
+export { Section };
+
+Section.propTypes = {
+  children: PropTypes.array.isRequired
+}

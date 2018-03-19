@@ -24,7 +24,7 @@ class Home extends Component {
             height: '100%',
             justifyContent: 'center',
           }}
-          source={{ uri: 'https://lh3.googleusercontent.com/-rAN3iNbA-g8/WmZDJwbUMRI/AAAAAAAABC8/dvx6BPX0cMEH_SQkN9HAdqvWkSuJn5IvQCL0BGAYYCw/h321/2018-01-22.gif' }}
+          source={require('../img/background.gif')}
           >
           <View style={styles.imgContainerStyle}>
             <Image style={styles.imgStyle} source={require('../img/logo.png')} accessbilityLabel="Frank's logo" />
