@@ -1,24 +1,21 @@
 import React from 'react';
-import { Scene, Router, Stack } from 'react-native-router-flux';
+import { Scene, Stack } from 'react-native-router-flux';
 import Home from './components/Home';
 import Landing from './components/Landing';
 import AccountDetails from './components/AccountDetails';
 import HistoricUsage from './components/HistoricUsage';
 import Map from './components/Map';
 import ChatSupport from './components/ChatSupport';
-import { connect } from 'react-redux';
 import SignUp from './containers/SignUp';
 import LogIn from './containers/LogIn';
 import ForgotPassword from './containers/ForgotPassword';
 import RestorePassword from './containers/RestorePassword';
 import ConnectUtility from './containers/ConnectUtility';
-
-const RouterWithRedux = connect()(Router);
+import CustomRouter from './containers/CustomRouter';
 
 const RouterComponent = () => {
   return (
-
-    <RouterWithRedux>
+    <CustomRouter>
       <Stack key="root">
         <Scene key="start" initial>
           <Scene key="home" component={Home} title="Home" hideNavBar />
@@ -40,7 +37,7 @@ const RouterComponent = () => {
           <Scene key="landing" component={Landing} title="Statistics" hideNavBar />
         </Scene>
 
-        <Scene key="account" initial>
+        <Scene key="account">
           <Scene key="accountDetails" component={AccountDetails} title="Home" hideNavBar />
         </Scene>
 
@@ -56,7 +53,7 @@ const RouterComponent = () => {
           <Scene key="chatSupport" component={ChatSupport} hideNavBar title="Support" />
         </Scene>
       </Stack>
-    </RouterWithRedux>
+    </CustomRouter>
 
   );
 };

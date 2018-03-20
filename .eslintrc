@@ -12,6 +12,7 @@
     "globals": {
         "console": true,
         "require": true,
-        "setTimeout": true
+        "setTimeout": true,
+        "window": true
     }
 }

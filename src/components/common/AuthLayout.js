@@ -51,5 +51,5 @@ export { AuthLayout };
 AuthLayout.propTypes = {
   reset: PropTypes.func,
   errorStore: PropTypes.object,
-  children: PropTypes.array
+  children: PropTypes.oneOfType([ PropTypes.object, PropTypes.array ]),
 }

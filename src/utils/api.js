@@ -2,8 +2,10 @@ import axios from "axios";
 import { AsyncStorage } from 'react-native';
 import token from "./token";
 
+// https://frank-api.azurewebsites.net/api 
+// http://localhost:3000/api
 const api= axios.create({
-    baseURL: 'http://localhost:3000/api',
+    baseURL: 'https://frank-api.azurewebsites.net/api',
 });
 
 api.interceptors.request.use(
