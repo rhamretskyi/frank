@@ -93,7 +93,7 @@ class UsageChart extends Component {
       <View style={{ height: 135}}>
         {/* x = EndDate y = Consumption */}
         <Svg
-          style={{ flex: 1, marginTop: 0, paddingTop: 0 }}
+          style={styles.svgStyle}
           height={200}
           width={300}
           viewBox={"0 0 140 350"}
@@ -134,6 +134,14 @@ class UsageChart extends Component {
         </Svg>
       </View>
     );
+  }
+}
+
+const styles = {
+  svgStyle: {
+    flex: 1, 
+    marginTop: 0, 
+    paddingTop: 0
   }
 }
 

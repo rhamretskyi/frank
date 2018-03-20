@@ -11,6 +11,7 @@ class HistoricUsage extends Component {
   render() {
     return(
       <View>
+        <ScrollView>
         <View style={{ paddingTop: 25, backgroundColor: '#123c66' }}>
           <View style={styles.topViewStyle}>
             <View style={styles.containerStyle}>
@@ -50,9 +51,7 @@ class HistoricUsage extends Component {
       </View>
       <View style={{ backgroundColor: '#f8fcff', marginTop: 10 }}>
         <View style={styles.lineStyle} />
-
-        <ScrollView style={{ top: 10, elevation: 2 }}>
-          <View style={{ flex: 1 }}>
+          <View style={{ top: 10, elevation: 2, flex: 1, paddingBottom: 60 }}>
             <Section>
               <View style={styles.accountStyle}>
                 <Text style={styles.accountTextStyle}>Account#: c2bad325</Text>
@@ -90,9 +89,9 @@ class HistoricUsage extends Component {
             </Section>
 
           </View>
-        </ScrollView>
-        <NavBar />
       </View>
+      </ScrollView>
+      <NavBar />
     </View>
     );
   }

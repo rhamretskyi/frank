@@ -17,7 +17,7 @@ const RouterComponent = () => {
   return (
     <CustomRouter>
       <Stack key="root">
-        <Scene key="start" initial>
+        <Scene key="start">
           <Scene key="home" component={Home} title="Home" hideNavBar />
         </Scene>
 
@@ -41,7 +41,7 @@ const RouterComponent = () => {
           <Scene key="accountDetails" component={AccountDetails} title="Home" hideNavBar />
         </Scene>
 
-        <Scene key="usage">
+        <Scene key="usage" initial>
           <Scene key="historicalUsage" component={HistoricUsage} title="Historic Usage" hideNavBar />
         </Scene>
 
