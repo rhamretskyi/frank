@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { reset } from 'redux-form'
-import { forgotPassword } from '../actions';
+import { forgotPassword, searchProvider, getProviders } from '../actions';
 import ConnectUtilityForm from '../components/ConnectUtilityForm';
 
 const mapStateToProps = (state) => {
@@ -8,6 +8,7 @@ const mapStateToProps = (state) => {
     errorStore: state.error,
     restoreCode: state.auth.restoreCode,
     loading: state.auth.loading,
+    providers: state.data.providers
   }
 }
 
@@ -18,6 +19,12 @@ const mapDispatchToProps = dispatch => {
     },
     reset: () => {
       dispatch(reset('forgotPassword'));
+    },
+    searchProvider: (value) => {
+      dispatch(searchProvider(value));
+    },
+    getProviders: () => {
+      dispatch(getProviders());
     }
   }
 }

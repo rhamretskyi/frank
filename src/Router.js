@@ -31,7 +31,7 @@ const RouterComponent = () => {
 
         <Scene key="restorePassword" component={RestorePassword} title="Forgot Password" hideNavBar  />
 
-        <Scene key="connectUtility" component={ConnectUtility} title="Connect You Utility" hideNavBar  />
+        <Scene key="connectUtility" component={ConnectUtility} title="Connect You Utility" hideNavBar initial  />
 
         <Scene key="land">
           <Scene key="landing" component={Landing} title="Statistics" hideNavBar />
@@ -41,7 +41,7 @@ const RouterComponent = () => {
           <Scene key="accountDetails" component={AccountDetails} title="Home" hideNavBar />
         </Scene>
 
-        <Scene key="usage" initial>
+        <Scene key="usage">
           <Scene key="historicalUsage" component={HistoricUsage} title="Historic Usage" hideNavBar />
         </Scene>
 

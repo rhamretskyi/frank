@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Image } from 'react-native';
+import PropTypes from 'prop-types';
 
 const BackButton = ({ onPress }) => {
   return (
@@ -17,4 +18,8 @@ const styles = {
         padding: 20,
         paddingTop: 40,
     }
+}
+
+BackButton.propTypes = {
+    onPress: PropTypes.func
 }

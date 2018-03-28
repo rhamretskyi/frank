@@ -5,7 +5,7 @@ import token from "./token";
 // https://frank-api.azurewebsites.net/api 
 // http://localhost:3000/api
 const api= axios.create({
-    baseURL: 'https://frank-api.azurewebsites.net/api',
+    baseURL: 'http://localhost:3000/api',
 });
 
 api.interceptors.request.use(

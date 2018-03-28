@@ -3,10 +3,20 @@ import { Text, View } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { AuthLayout, TurqButton, Card, CardSection, Input, Spinner } from './common/Index';
+import { AuthLayout, TurqButton, Card, CardSection, Input, Spinner, AutocompleteInput } from './common/Index';
 import { Actions } from 'react-native-router-flux';
 
 class ConnectUtilityForm extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      query: ''
+    };
+  }
+  componentDidMount() {
+    this.props.getProviders();
+  }
 
   submit = (values) => {
     this.props.onSubmit(values);
@@ -37,9 +47,10 @@ class ConnectUtilityForm extends Component {
           <CardSection>
             <Field
               name="search"
-              component={Input}
+              component={AutocompleteInput}
               placeholder="Search"
               iconType="search"
+              data={this.props.providers}
             />
           </CardSection>
           <CardSection>
@@ -104,6 +115,7 @@ const styles = {
 export default reduxForm({
   form: 'connectUtilityForm',
   validate: (values) => {
+    console.log(values);
     const errors = {};
     errors.search = !values.search 
       ? 'Search field is required' 
@@ -127,5 +139,7 @@ ConnectUtilityForm.propTypes = {
   handleSubmit: PropTypes.func,
   reset: PropTypes.func,
   errorStore: PropTypes.object,
-  restoreCode: PropTypes.number
+  searchProvider: PropTypes.func,
+  getProviders: PropTypes.func,
+  providers: PropTypes.array
 }

@@ -14,7 +14,7 @@ const styles = {
   containerStyle: {
     borderBottomWidth: 1,
     padding: 10,
-    backgroundColor: '#fff',
+    //backgroundColor: '#fff',
     justifyContent: 'flex-start',
     flexDirection: 'row',
     borderColor: '#02b3a4',

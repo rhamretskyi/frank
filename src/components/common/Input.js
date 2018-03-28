@@ -45,7 +45,7 @@ const styles = {
     paddingLeft: 5,
     fontSize: 18,
     lineHeight: 23,
-    flex: 2
+    flex: 1,
   },
   labelStyle: {
     fontSize: 18,
@@ -56,7 +56,7 @@ const styles = {
     flexDirection: 'row',
   },
   errorTextStyle: {
-    flex: 2,
+    flex: 1,
     fontSize: 13,
     color: 'red',
     marginLeft: -10,

@@ -13,3 +13,4 @@ export * from './BackButton';
 export * from './Error';
 export * from './AuthLayout';
 export * from './Tooltip';
+export * from './AutocompleteInput';

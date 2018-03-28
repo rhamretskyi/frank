@@ -1,7 +1,7 @@
 import { Actions } from "react-native-router-flux";
 import { AsyncStorage } from "react-native";
 import api from "../utils/api";
-
+import providersData from "../data/providers";
 export const loading = { type: 'SET_LOADING'};
 export const signUpVisibleAgreement = { type: 'SIGNUP_VISIBLE_AGREEMENT' };
 export const signUpSuccess = { type: 'SIGNUP_SUCCESS' };
@@ -106,4 +106,25 @@ export const restorePassword = (values) => (dispatch, getState) => {
         dispatch(loading);
         return dispatch(newError(new Error('Server error')));
     });
+}
+
+export const searchProvider = (value) => (dispatch) => {
+    console.log(value);
+    const provider = providersData._embedded.publicProviderResourceList.filter(x => x.name.includes(value));
+    console.log(provider);
+}
+
+export const getProviders = () => {
+    const providers = providersData._embedded.publicProviderResourceList.map((value) => {
+        return value;
+    });
+
+    return ({ 
+        type: 'GET_PROVIDERS', 
+        payload: providers
+    });
+};
+
+export const getProvider = (values) => (dispatch) => {
+    console.log(values);
 }
